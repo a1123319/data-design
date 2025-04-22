@@ -1,40 +1,84 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>彰化縣北斗鎮A11-A33</title>
-        <style>
-            .card {
-                font-family: Helvetica, Arial, sans-serif;
-                width: 80%;
-                margin: auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1), 2px -4px 6px rgba(0, 0, 0, 0.1);
-                background-color: #e1e8f2;
-                text-align: center;
-            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>彰化縣戶數 Heatmap</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #e7eed4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-            .card h1 {
-                font-size: 24px;
-                margin: 10px 0;
-                color: #164747;
-            }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
 
-            .card h2 {
-                font-size: 18px;
-                margin: 5px 0;
-                color: #69086a;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="card">
-            <h1>My Data Story: 彰化縣北斗鎮A11-A33 Curve Chart，顯示彰化縣北斗鎮的人口樣態</h1>
-            <h2>根據最新統計資料，高齡人口與身心障礙者的照護需求日益增加。在總共5961位長者中，約有六成為75歲以上高齡者，而另有近六成人口有不同程度的長期照護需求。這顯示我們亟需建立一套完整的支持系統，協助他們安穩生活。我們可以從健康促進做起，透過定期檢查與運動課程延緩退化；對於身心障礙長者，應強化輔具補助與無障礙環境建設。針對長期照護者，發展社區日照、居家服務與喘息照護等分級照護資源，同時也要支持家庭照顧者的訓練與心理調適。此外，導入智慧科技與數位學習，讓長者能更便利地獲得健康管理與社交參與的機會。透過跨領域合作與社區力量，我們能為長者打造更安全、有尊嚴且充滿溫暖的晚年生活。</h2>
-        </div>
-        <iframe src="https://plotdb.io/v/chart/37188" width="100%" height="600px" allowfullscreen="true" frameborder="0"></iframe>
-    </body>
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    .map-container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 2rem 0;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-caption {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 2rem;
+      max-width: 1000px;
+      width: 90%;
+      color: #555;
+      transition: color 0.15s ease-in-out, text-shadow 0.15s ease-in-out;
+      cursor: default;
+    }
+
+    .map-caption:hover {
+      color: #1e7241;
+      text-shadow: 0 0 2px rgba(8, 114, 73, 0.6);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .map-caption {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>彰化縣戶數 Heatmap</h1>
+  </header>
+
+  <div class="map-container">
+    <iframe src="https://plotdb.io/v/chart/37188" width="100%" height="600px" allowfullscreen="true" frameborder="0"></iframe>
+  </div>
+
+  <div class="map-caption">
+    <strong>彰化市</strong>、<strong>員林市</strong>和<strong>和美鎮</strong>的人口相比其他鄉鎮高出很多，是彰化縣主要的人口密集區。二水鄉是人口戶數最少的區域。
+  </div>
+</body>
 </html>
