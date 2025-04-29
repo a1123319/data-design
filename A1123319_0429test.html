@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive iFrame Example</title>
+  <title>彰化縣65歲以上性別人口統計 Heatmap</title>
   <style>
     body {
       margin: 0;
@@ -12,7 +12,7 @@
       color: #333;
     }
     .container {
-      width: 90%;
+      width: 95%;
       max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
@@ -21,12 +21,58 @@
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+    .description-container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fffdf0; /* 淡黃色背景 */
+      border: 1px solid #f5e6b3;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
     .description {
       margin-bottom: 15px;
       font-size: 1rem;
       line-height: 1.6;
       text-align: center;
     }
+    .chart-title {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #444;
+      padding: 10px;
+      border: 1px solid #f5e6b3;
+      background-color: #fffdf0;
+      border-radius: 6px;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: color 0.4s ease;
+    }
+
+    .chart-title:hover {
+      color: #5c5712; /* Slightly darker text for contrast */
+    }
+
+    .legend {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px 20px 10px 20px;
+      background-color: #fbf3f2;
+      border: 1px solid #ec8c8c;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #0f0101;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
     .iframe-container {
       position: relative;
       width: 100%;
@@ -34,6 +80,7 @@
       height: 0;
       overflow: hidden;
     }
+
     .iframe-container iframe {
       position: absolute;
       top: 0;
@@ -45,12 +92,44 @@
   </style>
 </head>
 <body>
+  <h1 class="chart-title">彰化縣65歲以上性別人口統計 - 熱點圖</h1>
+
+  <!-- Description Box -->
+  <div class="description-container">
+    <h2 class="description">
+      彰化市與員林市的高齡人口比例明顯偏高，而從圖二和圖三可以顯示男性和女性的比例可以對應到到圖一的總計人口，面臨嚴峻的高齡化挑戰。
+      為了因應此趨勢，應加強社區支持，如設置長者據點、推動共餐與樂齡活動，提升長者生活品質。
+      醫療方面可擴充在地長照服務與行動醫療巡迴，讓長者安心在地老化。交通與住宅也應更友善，提供無障礙設施與銀髮住宅改造補助。
+      同時推動混齡社區，促進世代共融，打造高齡友善城市。
+    </h2>
+  </div>
+
+  <!-- Chart and Legend Box 1 -->
   <div class="container">
-    <h1 class="description">
-      以下嵌入的是一個互動式圖表，您可以全螢幕觀看或在手機與電腦上流暢瀏覽。
-    </h1>
     <div class="iframe-container">
       <iframe src="https://plotdb.io/v/chart/37285" allowfullscreen="true"></iframe>
+    </div>
+    <div class="legend">
+      圖一：65歲以上人口
+    </div>
+  </div>
+
+  <!-- Chart and Legend Box 2 -->
+  <div class="container">
+    <div class="iframe-container">
+      <iframe src="https://plotdb.io/v/chart/37304" allowfullscreen="true"></iframe>
+    </div>
+    <div class="legend">
+      圖二：65歲以上男性人口
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="iframe-container">
+      <iframe src="https://plotdb.io/v/chart/37320" allowfullscreen="true"></iframe>
+    </div>
+    <div class="legend">
+      圖三：65歲以上女性人口
     </div>
   </div>
 </body>
