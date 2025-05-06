@@ -118,6 +118,66 @@
       font-size: 0.95rem;
       color: #0f0101;
     }
+
+    .figure-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fffdf0;
+      border: 1px solid #f5e6b3;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .figure-title {
+      text-align: center;
+      color: #444;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .figure-image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .figure-flex {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .figure-image {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .figure-description {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .figure-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .figure-description {
+        text-align: center;
+      }
+
+      .figure-image {
+        width: 80%;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -141,7 +201,7 @@
     </div>
 
     <!-- Tab Contents -->
-    <div id="tab1" class="tab-content">
+    <div id="tab1" class="tab-content active">
       <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37285" allowfullscreen></iframe>
       </div>
@@ -162,6 +222,21 @@
       <div class="legend">圖三：65歲以上女性人口</div>
     </div>
   </div>
+
+  <section class="figure-container">
+    <h2 class="figure-title">
+      虛擬旅行提案：讓行動不便長者也能遊歷世界
+    </h2>
+    <div class="figure-flex">
+      <img src="image.jpg" alt="虛擬旅行示意圖" class="figure-image">
+      <p class="figure-description">
+        旅行是豐富生活的重要元素，但對行動不便或身心障礙的長者來說，出門旅遊並不容易。
+        根據統計，彰化縣約有 4429 位身心障礙長者及 1013 位行動不便者，集中於彰化市與員林市。
+        因此，我們提出「虛擬旅行」的構想，透過影片帶領長者「雲端旅行」，不僅能欣賞世界美景，
+        還能交流過往回憶，促進心理健康與社交互動。
+      </p>
+    </div>
+  </section>
 
   <script>
     function openTab(tabId) {
