@@ -1,48 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>彰化縣65歲以上性別人口統計 Heatmap</title>
   <style>
     body {
-      margin: 0 10px 0 10px;
+      margin: 0 10px;
       font-family: Arial, sans-serif;
-      background-color: #fff9e6; /* 淡黃色背景 */
+      background-color: #fff9e6;
       color: #333;
-    }
-    .container {
-      box-sizing: border-box;
-      width: 100%;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fffbe0; /* 更淺的淡黃色區塊背景 */
-      border: 1px solid #f5e6b3;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .description-container {
-      box-sizing: border-box;
-      width: 100%;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fffdf0; /* 淡黃色背景 */
-      border: 1px solid #f5e6b3;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-    .description {
-      margin-bottom: 15px;
-      font-size: 1rem;
-      line-height: 1.6;
-      text-align: center;
     }
     .chart-title {
       text-align: center;
-      margin-bottom: 10px;
+      margin: 20px auto 10px;
       font-size: 2rem;
       font-weight: bold;
       color: #444;
@@ -51,34 +22,79 @@
       background-color: #fffdf0;
       border-radius: 6px;
       width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
       transition: color 0.4s ease;
     }
 
     .chart-title:hover {
-      color: #5c5712; /* Slightly darker text for contrast */
+      color: #5c5712;
     }
 
-    .legend {
+    .description-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fffdf0;
+      border: 1px solid #f5e6b3;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.6;
       text-align: center;
-      margin-top: 20px;
-      padding: 10px 20px 10px 20px;
-      background-color: #fbf3f2;
-      border: 1px solid #ec8c8c;
+    }
+
+    .tabs {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tab-buttons button {
+      padding: 10px 20px;
+      border: 1px solid #f5e6b3;
+      background-color: #fffbe0;
+      cursor: pointer;
       border-radius: 6px;
-      font-size: 0.95rem;
-      color: #0f0101;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.5;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .tab-buttons button:hover {
+      background-color: #f9eeb7;
+    }
+
+    .tab-buttons .active {
+      background-color: #ecda91;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .tab-content.active {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
     }
 
     .iframe-container {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
     }
@@ -92,32 +108,21 @@
       border: none;
     }
 
-    .tab-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #e4e39c; /* Bootstrap blue */
-      color: rgb(68, 75, 5);
-      text-decoration: none;
-      border-radius: 25px; /* Makes the button rounded */
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+    .legend {
+      text-align: center;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #fbf3f2;
+      border: 1px solid #ec8c8c;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #0f0101;
     }
-
-    .tab-btn:hover {
-      background-color: #dbdd6b; /* Darker blue on hover */
-    }
-
-    .btn-container {
-      display: flex;
-      justify-content: center;
-    }
-
   </style>
 </head>
 <body>
   <h1 class="chart-title">彰化縣65歲以上性別人口統計 - 熱點圖</h1>
 
-  <!-- Description Box -->
   <div class="description-container">
     <h2 class="description">
       彰化市與員林市的高齡人口比例明顯偏高，而從圖二和圖三可以顯示男性和女性的比例可以對應到到圖一的總計人口，面臨嚴峻的高齡化挑戰。
@@ -126,37 +131,54 @@
       同時推動混齡社區，促進世代共融，打造高齡友善城市。
     </h2>
   </div>
-  <div class="btn-container">
-    <a class="tab-btn" href="A1123319_0429test-tabs.html">頁籤式版本</a>
+
+  <div class="tabs">
+    <!-- Tab Buttons -->
+    <div class="tab-buttons">
+      <button class="tab-button active" onclick="openTab('tab1')">圖一：總人口</button>
+      <button class="tab-button" onclick="openTab('tab2')">圖二：男性</button>
+      <button class="tab-button" onclick="openTab('tab3')">圖三：女性</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="tab1" class="tab-content">
+      <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37285" allowfullscreen></iframe>
+      </div>
+      <div class="legend">圖一：65歲以上人口</div>
+    </div>
+
+    <div id="tab2" class="tab-content">
+      <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37304" allowfullscreen></iframe>
+      </div>
+      <div class="legend">圖二：65歲以上男性人口</div>
+    </div>
+
+    <div id="tab3" class="tab-content">
+      <div class="iframe-container">
+        <iframe src="https://plotdb.io/v/chart/37320" allowfullscreen></iframe>
+      </div>
+      <div class="legend">圖三：65歲以上女性人口</div>
+    </div>
   </div>
 
-  <!-- Chart and Legend Box 1 -->
-  <div class="container">
-    <div class="iframe-container">
-      <iframe src="https://plotdb.io/v/chart/37285" allowfullscreen="true"></iframe>
-    </div>
-    <div class="legend">
-      圖一：65歲以上人口
-    </div>
-  </div>
+  <script>
+    function openTab(tabId) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
 
-  <!-- Chart and Legend Box 2 -->
-  <div class="container">
-    <div class="iframe-container">
-      <iframe src="https://plotdb.io/v/chart/37304" allowfullscreen="true"></iframe>
-    </div>
-    <div class="legend">
-      圖二：65歲以上男性人口
-    </div>
-  </div>
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
 
-  <div class="container">
-    <div class="iframe-container">
-      <iframe src="https://plotdb.io/v/chart/37320" allowfullscreen="true"></iframe>
-    </div>
-    <div class="legend">
-      圖三：65歲以上女性人口
-    </div>
-  </div>
+      // Show selected tab and highlight button
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 </body>
 </html>
