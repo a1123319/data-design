@@ -78,11 +78,17 @@
     }
 
     .tab-content {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease;
     }
 
     .tab-content.active {
-      display: block;
+      visibility: visible;
+      opacity: 1;
+      height: auto;
     }
 
     .iframe-container {
@@ -135,7 +141,7 @@
     </div>
 
     <!-- Tab Contents -->
-    <div id="tab1" class="tab-content active">
+    <div id="tab1" class="tab-content">
       <div class="iframe-container">
         <iframe src="https://plotdb.io/v/chart/37285" allowfullscreen></iframe>
       </div>
